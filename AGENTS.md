@@ -1,0 +1,1 @@
+The detailed content provided earlier for the AGENTS.md file.
