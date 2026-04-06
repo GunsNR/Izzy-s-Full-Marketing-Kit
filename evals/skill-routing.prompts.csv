@@ -1,0 +1,6 @@
+prompt,expected_skill,notes
+"Traffic dropped 35% after site migration; check crawl/indexation and technical issues.",seo-technical-audit,trigger: traffic drop + technical diagnosis
+"Our close rate fell after repositioning; need ICP and offer correction.",positioning-and-offer-strategy,strategic diagnosis before tactics
+"Need to summarize weekly channel performance and next actions.",measurement-reporting-operator,reporting workflow
+"Build a seven-email nurture for trial users who did not activate.",lifecycle-nurture-builder,lifecycle conversion
+"Route this work across SEO, paid, and CRO with priorities.",marketing-company-orchestrator,orchestration request
