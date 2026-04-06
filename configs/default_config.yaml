@@ -1,1 +1,34 @@
-# Default configuration template.
+engine:
+  name: "izzy-full-marketing-kit"
+  objective: "Increase efficient pipeline growth using evidence-based full-funnel operations"
+
+quality_gates:
+  evidence_gate:
+    enabled: true
+    allowed_labels:
+      - Verified
+      - Probable
+      - Provisional
+  risk_gate:
+    enabled: true
+    escalate_on:
+      - pricing_or_offer_change
+      - budget_change_gt_20_percent
+      - crm_or_tracking_schema_change
+      - compliance_sensitive_claims
+  delivery_gate:
+    enabled: true
+    require_fields:
+      - objective
+      - assumptions
+      - source_clarity
+      - implementation_steps
+      - dependencies
+      - rollback
+      - measurement_plan
+      - next_action
+
+update_cadence:
+  weekly: "learning memo + repeated-error review"
+  monthly: "strategy review + KPI drift check"
+  quarterly: "benchmark refresh + playbook update"
