@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# managed-by: scripts/install_hooks.py
+set -euo pipefail
+
+ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+if [[ -z "$ROOT_DIR" ]]; then
+  echo "[context-guard] Unable to resolve git repository root."
+  exit 1
+fi
+
+cd "$ROOT_DIR"
+
+mapfile -t STAGED_FILES < <(git diff --cached --name-only)
+if [[ ${#STAGED_FILES[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+ARGS=()
+for f in "${STAGED_FILES[@]}"; do
+  ARGS+=(--changed-file "$f")
+done
+
+if ! python scripts/context_diff_guard.py "${ARGS[@]}"; then
+  echo
+  echo "[context-guard] Commit blocked: governed business-context changes require companion governance updates."
+  echo "[context-guard] Fix: update BUSINESS_CONTEXT_CHANGELOG.md and required rationale fields, then re-stage files."
+  echo "[context-guard] Verify locally: python scripts/context_diff_guard.py ${ARGS[*]}"
+  echo "[context-guard] Emergency bypass (documented justification only): git commit --no-verify"
+  exit 1
+fi
+
+exit 0
