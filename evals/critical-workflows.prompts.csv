@@ -1,0 +1,5 @@
+workflow_id,prompt,required_checks
+CW-001,"Launch new offer from zero: define positioning, evidence, KPI tree, then channel plan.",strategy-first;evidence-labels;delivery-gate
+CW-002,"Paid spend increased but pipeline quality dropped; diagnose and propose safe fixes.",measurement-integrity;risk-gate;rollback
+CW-003,"Run two LP experiments and summarize decisions.",experiment-design;evidence-labels;learning-format
+CW-004,"Major schema and internal linking overhaul proposal.",risk-gate-human-review;rollback;dependency-map
